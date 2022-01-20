@@ -1,34 +1,34 @@
 const wordSearch = (letters, word) => {
-  const horizontalJoin = letters.map(ls => ls.join(''));
-  for (let l of horizontalJoin) {
-    if (l.includes(word)) return true;
-  }
-  // transpose arrays to vertical letters
-  let verticleArray = transpose(letters);
+    const horizontalJoin = letters.map(ls => ls.join(''));
+    for (let l of horizontalJoin) {
+        if (l.includes(word)) return true;
+    }
+    // transpose arrays to vertical letters
+    let verticleArray = transpose(letters);
 
-  const verticleJoin = verticleArray.map(ls => ls.join(''));
+    const verticleJoin = verticleArray.map(ls => ls.join(''));
 
-  for (let l of verticleJoin) {
-    if (l.includes(word)) return true;
-  }
+    for (let l of verticleJoin) {
+        if (l.includes(word)) return true;
+    }
 
-  return false;
+    return false;
 
-  //return grid
+    //return grid
 };
 
 const transpose = (array) => {
 
-  let newGrid = [];
-  for (let row in array) {
-    //for each row create new array
-    let newOrder = [];
-    for (let i = 0; i < array.length; i++) {
-      newOrder.push(array[i][row]);
+    let newGrid = [];
+    for (let row in array) {
+        //for each row create new array
+        let newOrder = [];
+        for (let i = 0; i < array.length; i++) {
+            newOrder.push(array[i][row]);
+        }
+        newGrid.push(newOrder);
     }
-    newGrid.push(newOrder);
-  }
-  return newGrid;
+    return newGrid;
 };
 
 module.exports = wordSearch;
